@@ -18,7 +18,6 @@ import "@fontsource/inter/600.css";
 import "@fontsource/ibm-plex-sans-arabic/400.css";
 import "@fontsource/ibm-plex-sans-arabic/500.css";
 import "@fontsource/ibm-plex-sans-arabic/600.css";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { I18nProvider } from "../lib/i18n";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -47,9 +46,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
